@@ -2,8 +2,7 @@ package com.example;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.*;
 
 public class RestAssuredTest {
 
