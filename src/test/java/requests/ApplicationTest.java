@@ -5,12 +5,24 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
 public class ApplicationTest {
 
-    @Test
-    public void testGetRequest() {
-        Response response = RestAssured.get("https://api.trello.com/1/members/{id}/notificationsChannelSettings?key=APIKey&token=APIToken");
-        Assertions.assertEquals(200, response.statusCode());
-        System.out.println("Response Body: " + response.getBody().asString());
+    private static final String BASE_URL = "https://api.trello.com/1";
+    private final String apiKey;
+    private final String apiToken;
+
+    public ApplicationTest(String apiKey, String apiToken) {
+        this.apiKey = apiKey;
+        this.apiToken = apiToken;
+    }
+
+    public Response getCompliance(String applicationKey) {
+        return RestAssured
+                .given()
+                .queryParam("key", apiKey)
+                .queryParam("token", apiToken)
+                .when()
+                .get(BASE_URL + "/applications/" + applicationKey + "/compliance");
     }
 }
