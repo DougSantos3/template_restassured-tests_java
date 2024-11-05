@@ -1,11 +1,11 @@
-package requests;
+package requests.Boards;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ActionsTest {
+public class BoardsTest {
 
     @Test
     public void testGetRequest() {
